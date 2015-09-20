@@ -1,0 +1,8 @@
+.hidden {
+	display: none !important;
+	visibility:hidden;
+}
+
+.button_active {
+	outline: 1px solid red;
+}

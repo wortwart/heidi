@@ -1,0 +1,30 @@
+* {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+label {
+	display: block;
+	min-height: 2em;
+}
+
+code {
+	font-family: monospace;
+}
+
+aside {
+	border: 1px solid red;
+	font-size: x-large;
+	position: absolute;
+	height: 1em;
+	top: calc(100vh - 1em - 2px);
+}
+
+.toOpen {
+	background-color: yellow;
+	margin: .5em 0;
+}
+
+.toClose {
+	background-color: yellow;
+	margin: .5em 0;
+}
