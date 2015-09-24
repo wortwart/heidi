@@ -1,0 +1,25 @@
+{
+  "name": "heidi",
+  "version": "1.0.0",
+  "description": "Hides and shows elements dependent on form input",
+  "main": "heidi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wortwart/heidi.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "form",
+    "input"
+  ],
+  "author": "Herbert Braun (wortwart)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wortwart/heidi/issues"
+  },
+  "homepage": "https://github.com/wortwart/heidi#readme"
+}
