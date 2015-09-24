@@ -1,11 +1,35 @@
 * {
 	font-family: Helvetica, Verdana, Arial, sans-serif;
+	line-height: 1.25em;
+}
+
+fieldset {
+	min-width: 320px;
+	max-width: 800px;
+}
+
+section {
+	padding: .25em;
+}
+
+section:hover {
+	background-color: #eee;
 }
 
 label {
 	display: block;
-	min-height: 2em;
+	margin: .25em 0;
+	padding: .25em;
 }
+
+label:hover {
+	background-color: #ddd;
+}
+
+#nested2 {margin-left: 1em;}
+#nested3 {margin-left: 2em;}
+#nested4 {margin-left: 3em;}
+#nested5 {margin-left: 4em;}
 
 code {
 	font-family: monospace;
@@ -15,8 +39,12 @@ aside {
 	border: 1px solid red;
 	font-size: x-large;
 	position: absolute;
-	height: 1em;
-	top: calc(100vh - 1em - 2px);
+	height: 1.5em;
+	width: 96vh;
+	top: calc(50vh - .75em);
+	right: calc(.75em - 48vh);
+	text-align: center;
+	transform: rotate(90deg);
 }
 
 .toOpen {

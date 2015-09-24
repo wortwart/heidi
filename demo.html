@@ -14,42 +14,21 @@
 	</head>
 	<body>
 		<h1>Heidi &ndash; makes forms more interactive</h1>
-		<h2>Documentation and Demo</h2>
+		<h2>Demo</h2>
 
 		<p>This is a demo site for the JavaScript library Heidi. It shows or hides content areas according to user interaction on form elements. You only need to use data-attributes in HTML.</p>
-
-		<h3>Basic Usage:</h3>
-		<ul>
-			<li>Set a <code>data-select</code> attribute in a form element. Its value has to be a CSS selector as you use them in jQuery, e.g. <code>data-select="#element"</code> or <code>data-select=".class"</code>.</li>
-			<li>All elements which fit to this selector will be hidden <code>onLoad</code> and show up when you enter content, select or check the form element &ndash; depending on the type of the form element.</li>
-			<li>Heidi works with <code>&lt;input></code> (all types), <code>&lt;option></code>, and <code>&lt;button></code>.</li>
-			<li>Heidi is tested on all modern browsers and Internet Explorer back to version 9. It possibly will work on even older IEs, but go check yourself if you have to.</li>
-		</ul>
-
-		<h3>Some Advanced Tips:</h3>
-		<ul>
-			<li>If you hide other form elements you can decide if you want their contents deleted if they are hidden (default: no). Set the property <code>deleteHiddenFields</code> in the beginning of the script accordingly.</li>
-			<li>You can use complex selectors. <code>&lt;input type="checkbox" data-select=".class, #id"/></code> will turn on <code>&lt;x id="id"></code> and all <code>&lt;x class="class"></code>.</li>
-			<li>Negative selectors are possible! <code>&lt;input type="checkbox" data-select="!.class"/></code> will turn off all &lt;x class="class"></code></li>
-			<li>If you need more than one condition to be met for an element to show, use different selectors, e.g. <code>#id</code> and <code>el#id</code>.</li>
-			<li>There is basic support for <code>&lt;textarea></code> but browsers don't handle <code>onChange</code> events on these elements very well. Heidi does not yet make use of <code>onInput</code>.</li>
-			<li>Buttons are different from input and select fields. They are meant to be used as a row of switches turning alternate sections of content on (see demo below). They require a <code>data-value</code> attribute in their root element that states which section is on per default. They can't have multiple selectors.</li>
-		</ul>
-
-		<h3>Demo:</h3>
 
 		<form action="#" method="post">
 
 			<fieldset>
-				<legend>Heidi demo form</legend>
+				<legend>Heidi Demo: Form Elements</legend>
 				<section>
 					<h3>Click the checkboxes</h3>
-					<label><input type="checkbox" name="checkboxes[]" value="does nothing"/> This one does nothing</label>
 					<label>
-						<input type="checkbox" name="checkboxes[]" value="input field" data-select="#input-field"/> This one opens an input field nearby.
+						<input type="checkbox" name="checkboxes[]" value="input field" data-select="#input-field"/> This checkbox opens an input field nearby.
 						<input id="input-field" name="checkbox-additional-info"/>
 					</label>
-					<label><input type="checkbox" name="checkboxes[]" value="opens some HTML box" data-select="#html-box"/> This one opens an HTML box somewhere else</label>
+					<label><input type="checkbox" name="checkboxes[]" value="opens some HTML box" data-select="#html-box"/> This one opens an HTML box somewhere else.</label>
 					<label><input type="checkbox" name="checkboxes[]" value="several elements" data-select=".toOpen"/> This one opens all elements of a class.</label>
 					<label><input type="checkbox" name="checkboxes[]" value="several elements" data-select="!.toClose" checked="checked"/> This one closes some elements of a class.</label>
 					<label>
@@ -58,10 +37,10 @@
 					</label>
 					<div id="nested1">
 						<label>
-							Choose an option:
+							Select an option:
 							<select name="n1">
-								<option value="">Choose ...</option>
-								<option data-select="#nested2">Choose me!</option>
+								<option value="">Select ...</option>
+								<option data-select="#nested2">Select me!</option>
 								<option>Not me ...</option>
 							</select>
 						</label>
@@ -90,28 +69,59 @@
 						</div>
 					</div>
 				</section>
+
+				<section>
+					<h3>Play with other form elements</h3>
+					<label>
+						Select an option:
+						<select name="select">
+							<option value="">Select ...</option>
+							<option data-select="select ~ p">Select me!</option>
+							<option>Not me ...</option>
+						</select>
+						<p id="selected">This is my favourite option!</p>
+					</label>
+					<label>
+						Choose with radio buttons:<br/>
+						<input type="radio" name="radio" data-select="#radio">Yes<br/>
+						<input type="radio" name="radio">No
+						<p id="radio">Did I just hear a "Yes"?</p>
+					</label>
+					<label>
+						Pick a number:
+						<input type="number" name="number" data-select="p.numbered"/>
+						<p class="numbered">I love numbers.</p>
+					</label>
+					<label>
+						Enter some text:
+						<input type="text" name="textfield" data-select="[type='text'] ~ p"/>
+						(Click somewhere on the page when you're finished)
+						<p>Hi, my name is Laura Ipsum!</p>
+					</label>
+				</section>
 			</fieldset>
 
+			<aside id="html-box">
+				I open and close when a checkbox is clicked.
+			</aside>
+			<p class="toOpen">This paragraph (p) shows up together with a few others of his class.</p>
+			<pre class="toOpen">This paragraph (pre) shows up together with a few others of his class.</pre>
+			<blockquote class="toOpen">This paragraph (blockquote) shows up together with a few others of his class.</blockquote>
+			<p class="toClose">This paragraph disappears when a checkbox is clicked.</p>
+			<p class="toClose">This paragraph disappears when a checkbox is clicked.</p>
+
 			<fieldset>
-				<legend>Heidi demo form: buttons</legend>
+				<legend>Heidi Demo: Buttons</legend>
 				<section id="buttonbar" data-value="#panel1">
 					<p><button name="b1" data-select="#panel1">Button 1</button></p>
 					<p><button name="b2" data-select="#panel2">Button 2</button></p>
 					<p><button name="b3" data-select="#panel3">Button 3</button></p>
 				</section>
-				<div id="panel1">Panel 1</div>
-				<div id="panel2">Panel 2</div>
-				<div id="panel3">Panel 3</div>
+				<div id="panel1">Panel 1 was clicked</div>
+				<div id="panel2">Panel 2 was clicked</div>
+				<div id="panel3">Panel 3 was clicked</div>
 			</fieldset>
 		</form>
 
-		<aside id="html-box">
-			I open and close when a checkbox is clicked.
-		</aside>
-		<p class="toOpen">This paragraph (p) shows up together with a few others of his class.</p>
-		<pre class="toOpen">This paragraph (pre) shows up together with a few others of his class.</pre>
-		<blockquote class="toOpen">This paragraph (blockquote) shows up together with a few others of his class.</blockquote>
-		<p class="toClose">This paragraph disappears when a checkbox is clicked.</p>
-		<p class="toClose">This paragraph disappears when a checkbox is clicked.</p>
 	</body>
 </html>
