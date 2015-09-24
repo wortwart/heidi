@@ -8,7 +8,7 @@
 
 'use strict';
 
-if ($ === undefined || jQuery === undefined) {
+if (typeof $ === 'undefined' || typeof jQuery === 'undefined') {
 	console.error('Please embed jQuery before using the library Heidi.');
 }
 
